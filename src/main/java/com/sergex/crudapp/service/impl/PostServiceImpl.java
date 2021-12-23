@@ -14,13 +14,13 @@ public class PostServiceImpl implements PostService {
     private final PostRepository postRepository = new GsonPostRepositoryImpl();
 
     @Override
-    public Post getById(Long aLong) {
-        return postRepository.getById(aLong);
+    public Post getById(Long id) {
+        return postRepository.getById(id);
     }
 
     @Override
-    public void delete(Long aLong) {
-        postRepository.deleteById(aLong);
+    public void delete(Long id) {
+        postRepository.deleteById(id);
     }
 
     @Override

@@ -3,9 +3,7 @@ package com.sergex.crudapp.service.impl;
 import com.sergex.crudapp.repository.gson.GsonTagRepositoryImpl;
 import com.sergex.crudapp.service.TagService;
 import lombok.AllArgsConstructor;
-
 import com.sergex.crudapp.model.Tag;
-import com.sergex.crudapp.repository.PostRepository;
 import com.sergex.crudapp.repository.TagRepository;
 
 import java.util.List;

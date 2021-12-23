@@ -1,13 +1,10 @@
 package com.sergex.crudapp.view;
 
 import com.sergex.crudapp.controller.WriterController;
-import com.sergex.crudapp.model.Tag;
 import com.sergex.crudapp.repository.gson.GsonPostRepositoryImpl;
-import com.sergex.crudapp.repository.gson.GsonTagRepositoryImpl;
 import com.sergex.crudapp.utils.Messages;
 import com.sergex.crudapp.model.Post;
 import com.sergex.crudapp.model.Writer;
-import lombok.AllArgsConstructor;
 
 import java.util.*;
 
@@ -34,12 +31,6 @@ public class WriterViewImpl extends GeneralView {
     private final String updateActionList = "Update writer . \n" + Messages.ID.getMessage();
     private final String deleteActionList = "Delete writer . \n" + Messages.ID.getMessage();
     private final String exitMessage = "Exit .\n" + Messages.ID.getMessage();
-
-
-    private final String addPostMessage = "Post already exists \n" +
-            "ID = ";
-    private final String wantAddPostMessage = "Do you want add a new Post :";
-    private final String answerYes = "y";
 
     @Override
     public void show() {
@@ -70,13 +61,13 @@ public class WriterViewImpl extends GeneralView {
             }
 
             if (isExit)
+                System.out.println(exitMessage);
                 break;
         }
     }
 
     @Override
     public void create() {
-        System.out.println(createActionList);
         String name = createWriterName();
         GsonPostRepositoryImpl gsonPostRepository =
                 new GsonPostRepositoryImpl();

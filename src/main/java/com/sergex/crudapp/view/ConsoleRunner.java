@@ -15,27 +15,10 @@ public class ConsoleRunner {
     GeneralView postView;
     GeneralView tagView;
 
-    private final String messageDataDamaged = "Data is damaged";
-    private final String actionList = """
-            Create actions :\s
-            1. Tags\s
-            2. Posts\s
-            3. Writers\s
-            4. Exit\s
-            """;
-
     private Scanner sc = new Scanner(System.in);
 
     public ConsoleRunner() {
         try {
-//            TagRepository tagRepo = new GsonTagRepositoryImpl();
-//            PostRepository postRepo = new GsonPostRepositoryImpl();
-//            WriterRepository writerRepo = new GsonWriterRepositoryImpl();
-//
-//            TagService tagService = new TagServiceImpl();
-//            PostService postService = new PostServiceImpl();
-//            WriterService writerService = new WriterServiceImpl();
-
             TagController tagController = new TagController();
             PostController postController = new PostController();
             WriterController writerController = new WriterController();
@@ -45,14 +28,14 @@ public class ConsoleRunner {
             writerView = new WriterViewImpl(sc, writerController);
 
         } catch (Exception e) {
-            System.err.println(messageDataDamaged);
+            System.err.println(Messages.DATA_DAMAGED.getMessage());
         }
     }
 
     public void run() {
             boolean isExit = false;
             while (true) {
-                System.out.println(actionList);
+                System.out.println(Messages.ACTION_LIST.getMessage());
                 String response = sc.next();
                 switch (response) {
                     case "1":

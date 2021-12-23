@@ -1,8 +1,5 @@
 package com.sergex.crudapp.view;
-
 import com.sergex.crudapp.utils.Messages;
-import lombok.AllArgsConstructor;
-
 import java.util.Scanner;
 
 public abstract class GeneralView {

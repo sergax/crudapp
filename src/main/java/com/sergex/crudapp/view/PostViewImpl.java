@@ -34,10 +34,6 @@ public class PostViewImpl extends GeneralView {
     private final String createActionList = "Create post . \n" + Messages.CONTENT.getMessage();
     private final String updateActionList = "Update post . \n" + Messages.ID.getMessage();
     private final String deleteActionList = "Delete post . \n" + Messages.ID.getMessage();
-    private final String addSameTagMessage = "The same tag, choose another one...\n" +
-            "ID = ";
-    private final String wantAddTagMessage = "Do you want add more tag ? (y/n):";
-    private final String answerYes = "y";
 
     @Override
     public void show() {

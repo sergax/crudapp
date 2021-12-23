@@ -3,8 +3,6 @@ package com.sergex.crudapp.view;
 import com.sergex.crudapp.controller.TagController;
 import com.sergex.crudapp.utils.Messages;
 import com.sergex.crudapp.model.Tag;
-import lombok.AllArgsConstructor;
-
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;

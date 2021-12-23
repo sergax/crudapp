@@ -1,18 +1,14 @@
 package com.sergex.crudapp.repository.gson;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.sergex.crudapp.model.Writer;
 import lombok.AllArgsConstructor;
 import com.sergex.crudapp.repository.WriterRepository;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Type;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -29,7 +25,6 @@ public class GsonWriterRepositoryImpl implements WriterRepository {
         return writers.stream().filter(t -> t.getId().equals(id)).findFirst().orElse(null);
     }
 
-
     @Override
     public void deleteById(Long id) {
         List<Writer> writers = getAllWritersInternal();
@@ -43,8 +38,6 @@ public class GsonWriterRepositoryImpl implements WriterRepository {
         writers.forEach(t -> {
             if (t.getId().equals(item.getId())) {
                 t.setId(item.getId());
-                t.setName(item.getName());
-                t.setPosts(item.getPosts());
             }
         });
         writeWritersToFile(writers);
@@ -74,10 +67,11 @@ public class GsonWriterRepositoryImpl implements WriterRepository {
     private List<Writer> getAllWritersInternal() {
         //READ ALL TAGS FROM FILE USING GSON ADN RETURN LIST
         List<Writer> list = new ArrayList<>();
-        Gson gson = new Gson();
-        try (BufferedReader reader = Files.newBufferedReader(Path.of(FILE_NAME))) {
-           Type type = new TypeToken<List<Writer>>(){}.getType();
-           list = gson.fromJson(reader, type);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Reader reader = new FileReader(FILE_NAME)) {
+            Type type = new TypeToken<List<Writer>>() {
+            }.getType();
+            list = gson.fromJson(reader, type);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -86,7 +80,7 @@ public class GsonWriterRepositoryImpl implements WriterRepository {
 
     private void writeWritersToFile(List<Writer> items) {
         // WRITE ALL ITEMS TO FILE
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try (FileWriter writer = new FileWriter(FILE_NAME)) {
             gson.toJson(items, writer);
         } catch (IOException e) {
