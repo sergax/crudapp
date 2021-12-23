@@ -1,5 +1,6 @@
 package com.sergex.crudapp.model;
 
+import com.sergex.crudapp.utils.PostStatus;
 import lombok.Data;
 
 import java.util.List;

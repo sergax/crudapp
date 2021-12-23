@@ -1,4 +1,4 @@
-package com.sergex.crudapp.model;
+package com.sergex.crudapp.utils;
 
 public enum PostStatus {
     ACTIVE,

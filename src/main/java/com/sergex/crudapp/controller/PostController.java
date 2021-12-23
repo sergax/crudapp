@@ -1,12 +1,10 @@
 package com.sergex.crudapp.controller;
 
 import com.sergex.crudapp.model.Post;
-import com.sergex.crudapp.model.PostStatus;
+import com.sergex.crudapp.utils.PostStatus;
 import com.sergex.crudapp.model.Tag;
 import com.sergex.crudapp.service.PostService;
-import com.sergex.crudapp.service.TagService;
 import com.sergex.crudapp.service.impl.PostServiceImpl;
-import com.sergex.crudapp.service.impl.TagServiceImpl;
 
 import java.util.List;
 

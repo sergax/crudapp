@@ -2,17 +2,13 @@ package com.sergex.crudapp.repository.gson;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import com.sergex.crudapp.model.Tag;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import com.sergex.crudapp.repository.TagRepository;
-
 import java.io.*;
 import java.lang.reflect.Type;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.*;
 
 @Data
@@ -68,7 +64,7 @@ public class GsonTagRepositoryImpl implements TagRepository {
     }
 
     private List<Tag> getAllTagsInternal() {
-        //READ ALL TAGS FROM FILE USING GSON ADN RETURN LIST
+        //READ ALL TAGS FROM FILE USING GSON AND RETURN LIST
         List<Tag> list = new ArrayList<>();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try (Reader reader = new FileReader(FILE_NAME)) {

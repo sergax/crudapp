@@ -1,14 +1,12 @@
 package com.sergex.crudapp.view;
 
-import com.sergex.crudapp.repository.TagRepository;
 import com.sergex.crudapp.repository.gson.GsonTagRepositoryImpl;
 import com.sergex.crudapp.utils.Messages;
 import com.sergex.crudapp.model.Post;
-import com.sergex.crudapp.model.PostStatus;
+import com.sergex.crudapp.utils.PostStatus;
 import com.sergex.crudapp.model.Tag;
 
 import com.sergex.crudapp.controller.PostController;
-import lombok.AllArgsConstructor;
 
 import java.util.*;
 
