@@ -33,36 +33,40 @@ public class ConsoleRunner {
     }
 
     public void run() {
-            boolean isExit = false;
-            while (true) {
-                System.out.println(Messages.ACTION_LIST.getMessage());
-                String response = sc.next();
-                switch (response) {
-                    case "1":
-                        tagView.show();
-                        break;
-                    case "2":
-                        postView.show();
-                        break;
-                    case "3":
-                        writerView.show();
-                        break;
-                    case "4":
-                        isExit = true;
-                        break;
-                    default:
-                        System.out.println(Messages.ERROR_INPUT.getMessage());
-                        break;
-                }
-                if (isExit)
+        boolean isExit = false;
+        while (true) {
+            System.out.println(Messages.ACTION_LIST.getMessage());
+            String response = sc.next();
+            switch (response) {
+                case "1":
+                    tagView.show();
+                    break;
+                case "2":
+                    postView.show();
+                    break;
+                case "3":
+                    writerView.show();
+                    break;
+                case "4":
+                    isExit = true;
+                    break;
+                default:
+                    System.out.println(Messages.ERROR_INPUT.getMessage());
                     break;
             }
-            sc.close();
+            if (isExit)
+                break;
+        }
+        sc.close();
     }
 
     public static void main(String[] args) {
-        ConsoleRunner runner = new ConsoleRunner();
-        runner.run();
+        try {
+            ConsoleRunner runner = new ConsoleRunner();
+            runner.run();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
 
